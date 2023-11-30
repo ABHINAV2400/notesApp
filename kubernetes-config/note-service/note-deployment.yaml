@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: note-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: note-service
+  template:
+    metadata:
+      labels:
+        app: note-service
+    spec:
+      containers:
+      - name: note-service
+        image: abhinav2413/note-service:v5
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
