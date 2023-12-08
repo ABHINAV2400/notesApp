@@ -2,8 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const userRoutes = require('./routes/user');
-
+const cors = require('cors');
 const app = express();
+app.use(express.json());
+
+app.use(cors());
 
 mongoose.connect('mongodb://mongodb:27017/authService');
 

@@ -1,5 +1,5 @@
 # Use Node.js as the base image
-FROM node:20.10.0
+FROM node:18
 
 # Set the working directory
 WORKDIR /app
@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Expose the port the app runs on
-EXPOSE 3000
+EXPOSE 5000
 
 # Command to run the application
 CMD ["node", "server.js"]

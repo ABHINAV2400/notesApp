@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: auth-service
-        image: abhinav2413/auth-service:v4
+        image: abhinav2413/auth-service:1.0
         imagePullPolicy: Always
         ports:
         - containerPort: 3001

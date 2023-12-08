@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import authService from '../services/auth.service';
 
-function Login({ onLogin }) {
+function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       await authService.login(username, password);
-      onLogin();
+      navigate('/home'); // Navigate to home page on successful login
     } catch (error) {
       console.error('Login failed:', error);
     }
@@ -42,14 +44,3 @@ function Login({ onLogin }) {
 }
 
 export default Login;
-
-
-// import React from 'react'
-
-// function Login() {
-//   return (
-//     <div>Login</div>
-//   )
-// }
-
-// export default Login

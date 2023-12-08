@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: note-service
-        image: abhinav2413/note-service:v5
+        image: abhinav2413/note-service:1.0
         imagePullPolicy: Always
         ports:
-        - containerPort: 3000
+        - containerPort: 5000

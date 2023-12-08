@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import authService from '../services/auth.service';
 
-function RegisterForm({ onRegister }) {
+function RegisterForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
       await authService.register(username, password);
-      onRegister();
+      navigate('/login'); // Navigate to login page on successful registration
     } catch (error) {
       console.error('Registration failed:', error);
     }
@@ -35,6 +37,9 @@ function RegisterForm({ onRegister }) {
         />
       </div>
       <button type="submit">Register</button>
+      <p>
+        Already have an account? <Link to="/login">Login</Link>
+      </p>
     </form>
   );
 }
